@@ -1,0 +1,72 @@
+.container {
+  margin: 20px;
+  width: 500px;
+  border: 1px solid #5f6769;
+  border-radius: 4px;
+  font-family: "Muli", sans-serif;
+}
+
+.currentCity {
+  text-align: right;
+  font-size: 12px;
+  margin: 5px 0px;
+}
+
+.input-group {
+  margin: 10px 0px;
+}
+.btn-outline-secondary {
+  border: 1px solid #ced4da;
+}
+
+.btn-outline-secondary:hover {
+  background: #fff;
+}
+
+.fa-search {
+  color: grey;
+}
+
+.todayIcon {
+  font-size: 60px;
+  color: #f1be4f;
+}
+
+.currentTemperature {
+  font-size: 24px;
+  padding: 10px;
+}
+
+.temperatureUnit {
+  font-size: 14px;
+  margin: 18px 0px 18px 0px;
+}
+
+.dayInfo {
+  margin: 15px 0px;
+  color: #1089ff;
+}
+
+.currentWeather {
+  margin: 20px 0px;
+}
+
+.currentWeather h6 {
+  font-size: 13px;
+  color: #aaabac;
+}
+
+.forecasts .col {
+  text-align: center;
+  font-size: 13px;
+  color: #aaabac;
+}
+
+.forecasts {
+  text-align: center;
+  font-size: 20px;
+  margin: 20px 0px;
+}
+.sun {
+  color: #f1be4f;
+}
