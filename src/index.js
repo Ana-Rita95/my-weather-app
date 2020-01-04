@@ -87,5 +87,13 @@ function displayFtemperature(event) {
   temp.innerHTML = Math.round(fahrenheitTemperature);
 }
 
+function displayCtemperature(event) {
+  event.preventDefault();
+  temp.innerHTML = Math.round(celsiusTemperature);
+}
+
 let fahrenheitLink = document.querySelector("#fahrenheit-degrees");
 fahrenheitLink.addEventListener("click", displayFtemperature);
+
+let celsiusLink = document.querySelector("#celsius-degrees");
+celsiusLink.addEventListener("click", displayCtemperature);
