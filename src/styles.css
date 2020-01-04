@@ -1,9 +1,14 @@
-.container {
+.weather-app-wrapper {
   margin: 20px;
-  width: 500px;
+  padding: 20px;
+  max-width: 500px;
   border: 1px solid #5f6769;
   border-radius: 4px;
   font-family: "Muli", sans-serif;
+}
+
+.git-link {
+  margin-left: 20px;
 }
 
 .currentCity {
@@ -69,8 +74,4 @@
 }
 .sun {
   color: #f1be4f;
-}
-
-.git-link {
-  margin: 20px;
 }

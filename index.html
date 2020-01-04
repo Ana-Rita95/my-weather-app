@@ -26,125 +26,127 @@
   </head>
   <body>
     <div class="container">
-      <header>
-        <div class="currentCity">
-          <a href="#" id="current-city-weather">Current location</a>
-        </div>
-        <div class="search-engine">
-          <form action="" id="search-engine">
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter city here"
-                aria-label="City"
-                aria-describedby="button-addon2"
-                id="city-search"
-              />
-              <div class="input-group-append">
-                <button
-                  class="btn btn-outline-secondary"
-                  type="submit"
-                  id="button-addon2"
-                >
-                  <i class="fas fa-search"></i>
-                </button>
+      <div class="weather-app-wrapper">
+        <header>
+          <div class="currentCity">
+            <a href="#" id="current-city-weather">Current location</a>
+          </div>
+          <div class="search-engine">
+            <form action="" id="search-engine">
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter city here"
+                  aria-label="City"
+                  aria-describedby="button-addon2"
+                  id="city-search"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="submit"
+                    id="button-addon2"
+                  >
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </header>
+        <section class="dayInfo">
+          <h4>
+            <span class="greeting" id="greeting-phrase"></span>
+            <span class="city" id="city-identification"></span>
+          </h4>
+          <h6 class="timeDate" id="current-date-time"></h6>
+          <h6 class="weatherStatus" id="weather-stat">
+            Clear
+          </h6>
+        </section>
+        <div class="currentWeather">
+          <div class="row">
+            <div class="col-2">
+              <i class="fas fa-circle todayIcon"></i>
+            </div>
+            <div class="col-1 currentTemperature" id="current-temp"></div>
+            <div class="col-5 temperatureUnit">
+              <span class="temperatureUnit">
+                <a href="#" id="celsius-degrees">ºC</a>
+                |
+                <a href="#" id="fahrenheit-degrees">ºF</a>
+              </span>
+            </div>
+            <div class="col-4">
+              <h6 class="precipitation">
+                Precipitation: <span id="precipitation">0%</span>
+              </h6>
+              <h6 class="humidity">Humidity: <span id="humidity"></span>%</h6>
+              <h6 class="wind">Wind: <span id="wind">23</span> km/h</h6>
+            </div>
+          </div>
+          <section class="forecasts">
+            <div class="row days">
+              <div class="col day1">
+                Tue
+              </div>
+              <div class="col day2">
+                Wed
+              </div>
+              <div class="col day3">
+                Thu
+              </div>
+              <div class="col day4">
+                Fri
+              </div>
+              <div class="col day5">
+                Sat
               </div>
             </div>
-          </form>
+            <div class="row weatherIcons">
+              <div class="col icon1">
+                <i class="fas fa-circle sun"></i>
+              </div>
+              <div class="col icon2">
+                <i class="fas fa-cloud cloudy"></i>
+              </div>
+              <div class="col icon3">
+                <i class="fas fa-circle sun"></i>
+              </div>
+              <div class="col icon4">
+                <i class="fas fa-cloud-sun"></i>
+              </div>
+              <div class="col icon5">
+                <i class="fas fa-cloud-sun"></i>
+              </div>
+            </div>
+            <div class="row temperature">
+              <div class="col temperature1">
+                16ºC
+              </div>
+              <div class="col temperature2">
+                13ºC
+              </div>
+              <div class="col temperature3">
+                17ºC
+              </div>
+              <div class="col temperature4">
+                17ºC
+              </div>
+              <div class="col temperature5">
+                17ºC
+              </div>
+            </div>
+          </section>
         </div>
-      </header>
-      <section class="dayInfo">
-        <h4>
-          <span class="greeting" id="greeting-phrase"></span>
-          <span class="city" id="city-identification"></span>
-        </h4>
-        <h6 class="timeDate" id="current-date-time"></h6>
-        <h6 class="weatherStatus" id="weather-stat">
-          Clear
-        </h6>
-      </section>
-      <div class="currentWeather">
-        <div class="row">
-          <div class="col-2">
-            <i class="fas fa-circle todayIcon"></i>
-          </div>
-          <div class="col-1 currentTemperature" id="current-temp"></div>
-          <div class="col-5 temperatureUnit">
-            <span class="temperatureUnit">
-              <a href="#" id="celsius-degrees">ºC</a>
-              |
-              <a href="#" id="fahrenheit-degrees">ºF</a>
-            </span>
-          </div>
-          <div class="col-4">
-            <h6 class="precipitation">
-              Precipitation: <span id="precipitation">0%</span>
-            </h6>
-            <h6 class="humidity">Humidity: <span id="humidity"></span>%</h6>
-            <h6 class="wind">Wind: <span id="wind">23</span> km/h</h6>
-          </div>
-        </div>
-        <section class="forecasts">
-          <div class="row days">
-            <div class="col day1">
-              Tue
-            </div>
-            <div class="col day2">
-              Wed
-            </div>
-            <div class="col day3">
-              Thu
-            </div>
-            <div class="col day4">
-              Fri
-            </div>
-            <div class="col day5">
-              Sat
-            </div>
-          </div>
-          <div class="row weatherIcons">
-            <div class="col icon1">
-              <i class="fas fa-circle sun"></i>
-            </div>
-            <div class="col icon2">
-              <i class="fas fa-cloud cloudy"></i>
-            </div>
-            <div class="col icon3">
-              <i class="fas fa-circle sun"></i>
-            </div>
-            <div class="col icon4">
-              <i class="fas fa-cloud-sun"></i>
-            </div>
-            <div class="col icon5">
-              <i class="fas fa-cloud-sun"></i>
-            </div>
-          </div>
-          <div class="row temperature">
-            <div class="col temperature1">
-              16ºC
-            </div>
-            <div class="col temperature2">
-              13ºC
-            </div>
-            <div class="col temperature3">
-              17ºC
-            </div>
-            <div class="col temperature4">
-              17ºC
-            </div>
-            <div class="col temperature5">
-              17ºC
-            </div>
-          </div>
-        </section>
       </div>
-    </div>
-    <div class="git-link">
-      <a href="https://github.com/Ana-Rita95/my-weather-app" target="blank"
-        >Open-sourced code</a
-      >
-      by Ana Rita Silva
+      <div class="git-link">
+        <a href="https://github.com/Ana-Rita95/my-weather-app" target="_blank"
+          >Open-sourced code</a
+        >
+        by Ana Rita Silva
+      </div>
     </div>
     <script src="src/index.js"></script>
   </body>
