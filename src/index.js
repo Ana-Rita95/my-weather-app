@@ -15,6 +15,9 @@ let currentTimeDate = document.querySelector("#current-date-time");
 if (minutes < 10) {
   minutes = `0${now.getMinutes()}`;
 }
+if (hour < 10) {
+  hour = `0${now.getHours()}`;
+}
 currentTimeDate.innerHTML = `${day}, ${hour}:${minutes}`;
 
 let greeting = document.querySelector("#greeting-phrase");
@@ -34,6 +37,7 @@ let weatherStat = document.querySelector("#weather-stat");
 let temp = document.querySelector("#current-temp");
 let humidity = document.querySelector("#humidity");
 let wind = document.querySelector("#wind");
+let iconElement = document.querySelector("#today-icon");
 let celsiusTemperature = null;
 
 function search(event) {
@@ -54,6 +58,10 @@ function displayWeather(response) {
   temp.innerHTML = Math.round(celsiusTemperature);
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = response.data.wind.speed;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 let searchEngine = document.querySelector("#search-engine");
 searchEngine.addEventListener("submit", search);
@@ -72,6 +80,10 @@ function displayCurrent(response) {
   temp.innerHTML = Math.round(celsiusTemperature);
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = response.data.wind.speed;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function getCurrentPosition() {
@@ -85,11 +97,15 @@ function displayFtemperature(event) {
   event.preventDefault();
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temp.innerHTML = Math.round(fahrenheitTemperature);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
 }
 
 function displayCtemperature(event) {
   event.preventDefault();
   temp.innerHTML = Math.round(celsiusTemperature);
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit-degrees");

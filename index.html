@@ -41,6 +41,7 @@
                   aria-label="City"
                   aria-describedby="button-addon2"
                   id="city-search"
+                  autocomplete="off"
                 />
                 <div class="input-group-append">
                   <button
@@ -61,19 +62,20 @@
             <span class="city" id="city-identification"></span>
           </h4>
           <h6 class="timeDate" id="current-date-time"></h6>
-          <h6 class="weatherStatus" id="weather-stat">
-            Clear
-          </h6>
+          <h6 class="weatherStatus" id="weather-stat"></h6>
         </section>
         <div class="currentWeather">
           <div class="row">
             <div class="col-2">
-              <i class="fas fa-circle todayIcon"></i>
+              <img src="" class="float-left" id="today-icon" width="75px" />
             </div>
-            <div class="col-1 currentTemperature" id="current-temp"></div>
-            <div class="col-5 temperatureUnit">
+            <div
+              class="col-1 currentTemperature float-left"
+              id="current-temp"
+            ></div>
+            <div class="col-5 temperatureUnit float-left">
               <span class="temperatureUnit">
-                <a href="#" id="celsius-degrees">ºC</a>
+                <a href="#" id="celsius-degrees" class="active"> ºC</a>
                 |
                 <a href="#" id="fahrenheit-degrees">ºF</a>
               </span>
