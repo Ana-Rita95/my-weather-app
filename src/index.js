@@ -104,7 +104,6 @@ link.addEventListener("click", getCurrentPosition);
 
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
-  console.log(response);
   forecastElement.innerHTML = null;
   let forecast = null;
 
