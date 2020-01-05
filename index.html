@@ -67,20 +67,25 @@
         <div class="currentWeather">
           <div class="row">
             <div class="col-2">
-              <img src="" class="float-left" id="today-icon" width="75px" />
+              <img
+                src=""
+                class="float-left today-img"
+                id="today-icon"
+                width="75px"
+              />
             </div>
             <div
               class="col-1 currentTemperature float-left"
               id="current-temp"
             ></div>
-            <div class="col-5 temperatureUnit float-left">
+            <div class="col-3 temperatureUnit float-left">
               <span class="temperatureUnit">
                 <a href="#" id="celsius-degrees" class="active"> ºC</a>
                 |
                 <a href="#" id="fahrenheit-degrees">ºF</a>
               </span>
             </div>
-            <div class="col-4">
+            <div class="col-6 float-left">
               <h6 class="pressure">Pressure: <span id="pressure"></span> mb</h6>
               <h6 class="humidity">Humidity: <span id="humidity"></span>%</h6>
               <h6 class="wind">Wind: <span id="wind">23</span> km/h</h6>

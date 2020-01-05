@@ -33,13 +33,16 @@
 }
 
 .currentTemperature {
-  font-size: 35px;
+  font-size: 38px;
   padding: 10px;
+  line-height: 1;
 }
 
 .temperatureUnit {
   font-size: 14px;
-  margin: 18px 0px 18px 0px;
+  position: relative;
+  margin-top: 10px;
+  padding-left: 10px;
 }
 
 .temperatureUnit .active {
@@ -63,6 +66,13 @@
 .currentWeather h6 {
   font-size: 13px;
   color: #aaabac;
+  margin: 0px;
+}
+
+.currentWeather .today-img {
+  height: 64px;
+  width: 64px;
+  float: left;
 }
 
 .forecast h3 {
