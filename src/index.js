@@ -1,5 +1,13 @@
 function formatDate(timestamp) {
   let now = new Date(timestamp);
+  let hour = now.getHours();
+  if (hour < 10) {
+    hour = `0${now.getHours()}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${now.getMinutes()}`;
+  }
   let dayList = [
     "Sunday",
     "Monday",
@@ -10,7 +18,17 @@ function formatDate(timestamp) {
     "Saturday"
   ];
   let day = dayList[now.getDay()];
-  return `${day}, ${formatHours(timestamp)}`;
+  let greeting = document.querySelector("#greeting-phrase");
+  if (hour <= 12) {
+    greeting.innerHTML = "Good Morning,";
+  } else {
+    if (hour >= 18) {
+      greeting.innerHTML = "Good Evening,";
+    } else {
+      greeting.innerHTML = "Good Afternoon,";
+    }
+    return `${day}, ${hour}:${minutes}`;
+  }
 }
 
 function formatHours(timestamp) {
