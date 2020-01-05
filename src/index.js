@@ -16,16 +16,6 @@ function formatDate(timestamp) {
 function formatHours(timestamp) {
   let now = new Date(timestamp);
   let hour = now.getHours();
-  let greeting = document.querySelector("#greeting-phrase");
-  if (hour <= 12) {
-    greeting.innerHTML = "Good Morning,";
-  } else {
-    if (hour >= 18) {
-      greeting.innerHTML = "Good Evening,";
-    } else {
-      greeting.innerHTML = "Good Afternoon,";
-    }
-  }
   if (hour < 10) {
     hour = `0${now.getHours()}`;
   }
@@ -33,6 +23,7 @@ function formatHours(timestamp) {
   if (minutes < 10) {
     minutes = `0${now.getMinutes()}`;
   }
+
   return `${hour}:${minutes}`;
 }
 
@@ -55,10 +46,14 @@ function search(event) {
     city.innerHTML = citySearch.value;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch.value}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeather);
+
+    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${citySearch.value}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
   } else {
     alert("Please type a city");
   }
 }
+
 function displayWeather(response) {
   currentTimeDate.innerHTML = formatDate(response.data.dt * 1000);
   weatherStat.innerHTML = response.data.weather[0].main;
@@ -72,6 +67,7 @@ function displayWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
+
 let searchEngine = document.querySelector("#search-engine");
 searchEngine.addEventListener("submit", search);
 
@@ -80,8 +76,10 @@ function currentCity(position) {
   let longitude = position.coords.longitude;
   let apiUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrlCurrent).then(displayCurrent);
-}
 
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 function displayCurrent(response) {
   currentTimeDate.innerHTML = formatDate(response.data.dt * 1000);
   city.innerHTML = response.data.name;
@@ -103,6 +101,30 @@ function getCurrentPosition() {
 
 let link = document.querySelector("#current-city-weather");
 link.addEventListener("click", getCurrentPosition);
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  console.log(response);
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-2">
+        <h3>${formatHours(forecast.dt * 1000)}</h3>
+        <img src="http://openweathermap.org/img/wn/${
+          forecast.weather[0].icon
+        }@2x.png"/>
+        <div class="weather-forecast-temperature">
+          <strong>${Math.round(forecast.main.temp_max)}</strong>º ${Math.round(
+      forecast.main.temp_min
+    )}
+        </div>
+        </div>
+    `;
+  }
+}
 
 function displayFtemperature(event) {
   event.preventDefault();

@@ -65,17 +65,30 @@
   color: #aaabac;
 }
 
-.forecasts .col {
+.forecast h3 {
   text-align: center;
   font-size: 13px;
   color: #aaabac;
+  font-weight: 400;
+  text-align: center;
+  height: 15px;
+  line-height: 15px;
+  padding-top: 7px;
 }
 
-.forecasts {
-  text-align: center;
-  font-size: 20px;
-  margin: 20px 0px;
+.forecast img {
+  display: block;
+  margin: 0 auto;
+  height: 48px;
+  width: 48px;
 }
-.sun {
-  color: #f1be4f;
+
+.weather-forecast-temperature {
+  color: #aaabac;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  height: auto;
+  line-height: 15px;
+  white-space: nowrap;
 }
