@@ -1,43 +1,50 @@
-let now = new Date();
-let dayList = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
-let day = dayList[now.getDay()];
-let hour = now.getHours();
-let minutes = now.getMinutes();
-let currentTimeDate = document.querySelector("#current-date-time");
-if (minutes < 10) {
-  minutes = `0${now.getMinutes()}`;
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
+  let dayList = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  let day = dayList[now.getDay()];
+  return `${day}, ${formatHours(timestamp)}`;
 }
-if (hour < 10) {
-  hour = `0${now.getHours()}`;
-}
-currentTimeDate.innerHTML = `${day}, ${hour}:${minutes}`;
 
-let greeting = document.querySelector("#greeting-phrase");
-if (hour <= 12) {
-  greeting.innerHTML = "Good Morning,";
-} else {
-  if (hour >= 18) {
-    greeting.innerHTML = "Good Evening,";
+function formatHours(timestamp) {
+  let now = new Date(timestamp);
+  let hour = now.getHours();
+  let greeting = document.querySelector("#greeting-phrase");
+  if (hour <= 12) {
+    greeting.innerHTML = "Good Morning,";
   } else {
-    greeting.innerHTML = "Good Afternoon,";
+    if (hour >= 18) {
+      greeting.innerHTML = "Good Evening,";
+    } else {
+      greeting.innerHTML = "Good Afternoon,";
+    }
   }
+  if (hour < 10) {
+    hour = `0${now.getHours()}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${now.getMinutes()}`;
+  }
+  return `${hour}:${minutes}`;
 }
 
 let apiKey = "c36eed6fdb5a21af557e531f54eafda8";
 let city = document.querySelector("#city-identification");
 let weatherStat = document.querySelector("#weather-stat");
+let pressureElement = document.querySelector("#pressure");
 let temp = document.querySelector("#current-temp");
 let humidity = document.querySelector("#humidity");
 let wind = document.querySelector("#wind");
 let iconElement = document.querySelector("#today-icon");
+let currentTimeDate = document.querySelector("#current-date-time");
 let celsiusTemperature = null;
 
 function search(event) {
@@ -53,9 +60,11 @@ function search(event) {
   }
 }
 function displayWeather(response) {
+  currentTimeDate.innerHTML = formatDate(response.data.dt * 1000);
   weatherStat.innerHTML = response.data.weather[0].main;
   celsiusTemperature = response.data.main.temp;
   temp.innerHTML = Math.round(celsiusTemperature);
+  pressureElement.innerHTML = response.data.main.pressure;
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = response.data.wind.speed;
   iconElement.setAttribute(
@@ -74,10 +83,12 @@ function currentCity(position) {
 }
 
 function displayCurrent(response) {
+  currentTimeDate.innerHTML = formatDate(response.data.dt * 1000);
   city.innerHTML = response.data.name;
   weatherStat.innerHTML = response.data.weather[0].main;
   celsiusTemperature = response.data.main.temp;
   temp.innerHTML = Math.round(celsiusTemperature);
+  pressureElement.innerHTML = response.data.main.pressure;
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = response.data.wind.speed;
   iconElement.setAttribute(
