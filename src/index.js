@@ -9,13 +9,13 @@ function formatDate(timestamp) {
     minutes = `0${now.getMinutes()}`;
   }
   let dayList = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday"
   ];
   let day = dayList[now.getDay()];
   let greeting = document.querySelector("#greeting-phrase");
@@ -27,8 +27,8 @@ function formatDate(timestamp) {
     } else {
       greeting.innerHTML = "Good Afternoon,";
     }
-    return `${day}, ${hour}:${minutes}`;
   }
+  return `Last updated at: ${day}, ${hour}:${minutes}`;
 }
 
 function formatHours(timestamp) {
